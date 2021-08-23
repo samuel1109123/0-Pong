@@ -1,5 +1,5 @@
 /**
- * pong-6
+ * Pong-6
  * "The Score Update"
  *
  * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)

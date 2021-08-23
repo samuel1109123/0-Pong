@@ -1,5 +1,5 @@
 /**
- * pong-7
+ * Pong-7
  * "The Serve Update"
  *
  * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)

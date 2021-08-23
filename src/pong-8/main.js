@@ -1,5 +1,5 @@
 /**
- * pong-8
+ * Pong-8
  * "The Audio Update"
  *
  * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)

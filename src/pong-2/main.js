@@ -1,5 +1,5 @@
 /**
- * pong-2
+ * Pong-2
  * "The Paddle Update"
  *
  * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)

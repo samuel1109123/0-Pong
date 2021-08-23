@@ -1,5 +1,5 @@
 /**
- * pong-0
+ * Pong-0
  * "The Day-0 Update"
  *
  * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)
@@ -73,7 +73,6 @@ function render() {
 	 */
 	context.clearRect(0, 0, canvas.width, canvas.height);
 
-	context.font = '60px Joystix';
 	context.fillStyle = 'white';
 	context.textBaseline = 'middle';
 	context.textAlign = 'center';

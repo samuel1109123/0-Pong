@@ -1,5 +1,5 @@
 /**
- * pong-1
+ * Pong-1
  * "The Rectangle Update"
  *
  * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)

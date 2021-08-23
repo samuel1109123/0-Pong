@@ -1,5 +1,5 @@
 /**
- * pong-4
+ * Pong-4
  * "The Class Update"
  *
  * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)

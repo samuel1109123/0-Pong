@@ -1,5 +1,5 @@
 /**
- * pong-3
+ * Pong-3
  * "The Ball Update"
  *
  * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)

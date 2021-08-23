@@ -1,5 +1,5 @@
 /**
- * pong-5
+ * Pong-5
  * "The Collision Update"
  *
  * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)

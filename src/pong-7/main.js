@@ -110,7 +110,7 @@ function update(dt) {
 		else if (gameState === 'serve') {
 			gameState = 'play';
 		}
-		else if (gameState === 'done') {
+		else if (gameState === 'victory') {
 			gameState = 'serve';
 			player1Score = 0;
 			player2Score = 0;
@@ -130,7 +130,7 @@ function update(dt) {
 
 			if (player2Score === VICTORY_SCORE) {
 				winningPlayer = 2;
-				gameState = 'done';
+				gameState = 'victory';
 			}
 			else {
 				ball.reset(CANVAS_WIDTH / 2 - 10, CANVAS_HEIGHT / 2 - 10, servingPlayer);
@@ -143,7 +143,7 @@ function update(dt) {
 
 			if (player1Score === VICTORY_SCORE) {
 				winningPlayer = 1;
-				gameState = 'done';
+				gameState = 'victory';
 			}
 			else {
 				ball.reset(CANVAS_WIDTH / 2 - 10, CANVAS_HEIGHT / 2 - 10, servingPlayer);
@@ -219,7 +219,7 @@ function render() {
 		context.fillText(`Player ${servingPlayer}'s serve...`, canvas.width / 2, canvas.height / 4);
 		context.fillText(`Press Enter to serve!`, canvas.width / 2, canvas.height / 4 + 40);
 	}
-	else if (gameState === 'done') {
+	else if (gameState === 'victory') {
 		context.fillText(`🎉 Player ${winningPlayer} wins! 🎉`, canvas.width / 2, canvas.height / 4);
 		context.fillText(`Press Enter to restart!`, canvas.width / 2, canvas.height / 4 + 40);
 	}

@@ -213,7 +213,7 @@ function render() {
 
 	if (gameState === 'start') {
 		context.fillText(`🏓 Welcome to Pong 🏓`, canvas.width / 2, canvas.height / 4);
-		context.fillText(`Press Enter to being!`, canvas.width / 2, canvas.height / 4 + 40);
+		context.fillText(`Press Enter to begin!`, canvas.width / 2, canvas.height / 4 + 40);
 	}
 	else if (gameState === 'serve') {
 		context.fillText(`Player ${servingPlayer}'s serve...`, canvas.width / 2, canvas.height / 4);

@@ -122,33 +122,33 @@ function update(dt) {
 
 	if (gameState === 'play') {
 		ball.update(dt, player1, player2);
-	}
 
-	// If we reach the left or right edge of the screen go back to start and update the score.
-	if (ball.x < 0) {
-		servingPlayer = 2;
-		player2Score++;
+		// If we reach the left or right edge of the screen go back to start and update the score.
+		if (ball.x + ball.width < 0) {
+			servingPlayer = 2;
+			player2Score++;
 
-		if (player2Score === VICTORY_SCORE) {
-			winningPlayer = 2;
-			gameState = 'done';
+			if (player2Score === VICTORY_SCORE) {
+				winningPlayer = 2;
+				gameState = 'done';
+			}
+			else {
+				ball.reset(CANVAS_WIDTH / 2 - 10, CANVAS_HEIGHT / 2 - 10, servingPlayer);
+				gameState = 'serve';
+			}
 		}
-		else {
-			ball.reset(CANVAS_WIDTH / 2 - 10, CANVAS_HEIGHT / 2 - 10, servingPlayer);
-			gameState = 'serve';
-		}
-	}
-	else if (ball.x > CANVAS_WIDTH) {
-		servingPlayer = 1;
-		player1Score++;
+		else if (ball.x > CANVAS_WIDTH) {
+			servingPlayer = 1;
+			player1Score++;
 
-		if (player1Score === VICTORY_SCORE) {
-			winningPlayer = 1;
-			gameState = 'done';
-		}
-		else {
-			ball.reset(CANVAS_WIDTH / 2 - 10, CANVAS_HEIGHT / 2 - 10, servingPlayer);
-			gameState = 'serve';
+			if (player1Score === VICTORY_SCORE) {
+				winningPlayer = 1;
+				gameState = 'done';
+			}
+			else {
+				ball.reset(CANVAS_WIDTH / 2 - 10, CANVAS_HEIGHT / 2 - 10, servingPlayer);
+				gameState = 'serve';
+			}
 		}
 	}
 

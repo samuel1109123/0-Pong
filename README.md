@@ -45,7 +45,7 @@ _Image courtesy of [Game Programming Patterns](gameprogrammingpatterns.com/game-
 
 In the context of 2D games, the most fundamental way of looking at the world is by using the 2D coordinate system.
 
-Slightly different from the traditional coordinate system you might've used in Math class, the 2D coordinate system we're referring to here is a system in which objects have an X and Y coordinate (X, Y) and are drawn accordingly, with (0,0) being the top-left of the system. This means positive directions moving down and to the right, while negative directions move up and to the left.
+Slightly different from the traditional coordinate system you might've used in Math class, the 2D coordinate system we're referring to here is a system in which objects have an X and Y coordinate (X, Y) and are drawn accordingly, with (0, 0) being the top-left of the system. This means positive directions moving down and to the right, while negative directions move up and to the left.
 
 ![Coordinate System](images/2D-Coordinate-System.png)
 
@@ -148,7 +148,7 @@ myFont.load().then(function (font) {
 
 This will allow us to create a custom font object (based off the font file we've added to our project directory) that we can set as the active font in our game.
 
-The only other changes to the code in this update can be found in the `draw` function.
+The only other changes to the code in this update can be found in the `render()` function.
 
 ```javascript
 context.fillText(`${player1Score}`, canvas.width * 0.25, 50);
@@ -354,6 +354,19 @@ else {
 - We can use AABB Collision Detection to detect whether our ball is colliding with our paddles and react accordingly.
 - We can apply similar logic to detect if the ball collides with a window boundary.
 
+```iframe
+height="537"
+width="100%"
+scrolling="no"
+title="AABB Collision Detection Visualization"
+src="https://codepen.io/vsingh7/embed/powJMYW?default-tab=result"
+frameborder="no"
+loading="lazy"
+allowtransparency="true"
+allowfullscreen="true"
+textContent="See the Pen <a href='https://codepen.io/vsingh7/pen/powJMYW'>AABB Collision Detection Visualization</a> by Vikram Singh (<a href='https://codepen.io/vsingh7'>@vsingh7</a>) on <a href='https://codepen.io'>CodePen</a>."
+```
+
 ### Important Code
 
 Notice how we've added a `didCollide()` function to our `Ball` class. It uses the above algorithm to determine whether there has been a collision, returning `true` if so and `false` otherwise.
@@ -393,10 +406,10 @@ Pong-6 allows us to keep track of the score.
 
 ### Important Code
 
-All we need to do is increment the score variables for each player whenever the ball collides with their goal boundary:
+All we need to do is increment the score variables for each player whenever the ball goes past their goal boundary:
 
 ```javascript
-if (ball.x < 0) {
+if (ball.x + ball.width < 0) {
     player2Score++;
     ball.reset(CANVAS_WIDTH / 2 - 10, CANVAS_HEIGHT / 2 - 10);
     gameState = 'start';
@@ -434,10 +447,10 @@ else if (gameState === 'serve') {
 
 The idea is that when a player gets scored on, they should get to serve the ball, so as to not be immediately on defense. We do this by passing the currently serving player to the ball's `reset()` method so that it can set the balls new velocity according to who is serving.
 
-We introduce a new state: "done", and then we set a maximum score (in our case, 10). Within `update()`, we modify our code that checks whether a point has been scored as follows:
+We introduce a new state: "victory", and then we set a maximum score (in our case, 10). Within `update()`, we modify our code that checks whether a point has been scored as follows:
 
 ```javascript
-if (ball.x < 0) {
+if (ball.x + ball.width < 0) {
     servingPlayer = 2;
     player2Score++;
 
@@ -465,7 +478,7 @@ else if (ball.x > CANVAS_WIDTH) {
 }
 ```
 
-When a player reaches the maximum score, the game state transitions to "done" and we produce a victory screen in `render()`:
+When a player reaches the maximum score, the game state transitions to "victory" and we produce a victory screen in `render()`:
 
 ```javascript
 else if (gameState === 'victory') {
@@ -489,7 +502,7 @@ else if (gameState === 'victory') {
 
 ## 🔊 Pong-8 ("The Audio Update")
 
-Pong-8 adds sound to the game
+Pong-8 adds sound to the game.
 
 ### Important Functions
 

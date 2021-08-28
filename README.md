@@ -354,11 +354,12 @@ else {
 - We can use AABB Collision Detection to detect whether our ball is colliding with our paddles and react accordingly.
 - We can apply similar logic to detect if the ball collides with a window boundary.
 
-<iframe height="537" style="width: 100%;" scrolling="no" title="AABB Collision Detection Visualization" src="https://codepen.io/vsingh7/embed/powJMYW?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/vsingh7/pen/powJMYW">
+<p class="codepen" data-height="537" data-default-tab="result" data-slug-hash="powJMYW" data-user="vsingh7" style="height: 537px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/vsingh7/pen/powJMYW">
   AABB Collision Detection Visualization</a> by Vikram Singh (<a href="https://codepen.io/vsingh7">@vsingh7</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 ### Important Code
 

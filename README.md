@@ -1,5 +1,7 @@
 # 🏓 Pong
 
+You can view the pretty version of the notes [here](https://jac-cs-game-programming-f21.github.io/Notes/#/0-Pong).
+
 ## 🎯 Objectives
 
 - **HTML5 Canvas w/ JS**: This is the programming language that we'll be using throughout the course. You should be familiar with the HTML5 `<canvas>` element from Web I.

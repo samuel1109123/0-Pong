@@ -1,6 +1,6 @@
 /**
  * Pong-2
- * "The Paddle Update"
+ * The "Paddle" Update
  *
  * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)
  * Adapted to JS by: Vikram Singh (vikram.singh@johnabbott.qc.ca)

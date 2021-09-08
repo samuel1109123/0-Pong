@@ -1,6 +1,6 @@
 /**
  * Pong-4
- * "The Class Update"
+ * The "Class" Update
  *
  * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)
  * Adapted to JS by: Vikram Singh (vikram.singh@johnabbott.qc.ca)

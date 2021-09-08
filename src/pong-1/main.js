@@ -1,6 +1,6 @@
 /**
  * Pong-1
- * "The Rectangle Update"
+ * The "Rectangle" Update
  *
  * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)
  * Adapted to JS by: Vikram Singh (vikram.singh@johnabbott.qc.ca)

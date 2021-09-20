@@ -1,8 +1,8 @@
 # 🏓 Pong
 
-You can view the pretty version of the notes [here](https://jac-cs-game-programming-f21.github.io/Notes/#/0-Pong).
+You can view the pretty version of the notes [here](https://jac-cs-game-programming-f21.github.io/Notes/#/0-Pong/).
 
-## 🎯 Objectives
+## 🎯 Objective
 
 - **HTML5 Canvas w/ JS**: This is the programming language that we'll be using throughout the course. You should be familiar with the HTML5 `<canvas>` element from Web I.
 - **Drawing Shapes and Text**: Two of the most basic principles of game development, being able to draw shapes and text is what will allow us to render our game on a screen.

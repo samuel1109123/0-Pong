@@ -23,14 +23,18 @@ import Paddle from "./Paddle.js";
  * the DOM located in `index.html` and getting the `context` object
  * from it.
  */
-const canvas = document.querySelector('canvas');
-const context = canvas.getContext('2d');
+const canvas = document.createElement('canvas');
+const context = canvas.getContext('2d') || new CanvasRenderingContext2D();
 const CANVAS_WIDTH = 1280;
 const CANVAS_HEIGHT = 720;
 
 // Set the dimensions of the play area.
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
+canvas.setAttribute('tabindex', '1'); // Allows the canvas to have user input.
+
+// Now that the canvas element has been prepared, we can add it to the DOM.
+document.body.appendChild(canvas);
 
 // Initialize score variables for rendering on the screen and keeping track of the winner.
 let player1Score = 0;
@@ -218,16 +222,16 @@ function render() {
 	context.font = "24px Joystix";
 
 	if (gameState === 'start') {
-		context.fillText(`🏓 Welcome to Pong 🏓`, canvas.width / 2, canvas.height / 4);
-		context.fillText(`Press Enter to begin!`, canvas.width / 2, canvas.height / 4 + 40);
+		context.fillText(`🏓 Welcome to Pong 🏓`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 4);
+		context.fillText(`Press Enter to begin!`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 4 + 40);
 	}
 	else if (gameState === 'serve') {
-		context.fillText(`Player ${servingPlayer}'s serve...`, canvas.width / 2, canvas.height / 4);
-		context.fillText(`Press Enter to serve!`, canvas.width / 2, canvas.height / 4 + 40);
+		context.fillText(`Player ${servingPlayer}'s serve...`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 4);
+		context.fillText(`Press Enter to serve!`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 4 + 40);
 	}
 	else if (gameState === 'victory') {
-		context.fillText(`🎉 Player ${winningPlayer} wins! 🎉`, canvas.width / 2, canvas.height / 4);
-		context.fillText(`Press Enter to restart!`, canvas.width / 2, canvas.height / 4 + 40);
+		context.fillText(`🎉 Player ${winningPlayer} wins! 🎉`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 4);
+		context.fillText(`Press Enter to restart!`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 4 + 40);
 	}
 }
 

@@ -20,14 +20,18 @@
  * the DOM located in `index.html` and getting the `context` object
  * from it.
  */
-const canvas = document.querySelector('canvas');
-const context = canvas.getContext('2d');
+const canvas = document.createElement('canvas');
+const context = canvas.getContext('2d') || new CanvasRenderingContext2D();
 const CANVAS_WIDTH = 1280;
 const CANVAS_HEIGHT = 720;
 
 // Set the dimensions of the play area.
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
+canvas.setAttribute('tabindex', '1'); // Allows the canvas to have user input.
+
+// Now that the canvas element has been prepared, we can add it to the DOM.
+document.body.appendChild(canvas);
 
 // Initialize score variables for rendering on the screen and keeping track of the winner.
 let player1Score = 0;
@@ -109,7 +113,7 @@ function update(dt) {
 		 * We have to immediately set the enter field of the keys object to false
 		 * because technically, this field will be true for the entire time the key
 		 * is pressed. If you hold down the enter key, you don't want the ball to
-		 * repeatedly launch over ang over again.
+		 * repeatedly launch over and over again.
 		 */
 		keys.Enter = false;
 
@@ -185,7 +189,7 @@ function render() {
 	 * fresh each frame. It does this by drawing a "clear" rectangle starting
 	 * from the origin to the extremities of the canvas.
 	 */
-	context.clearRect(0, 0, canvas.width, canvas.height);
+	context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
 	// Set font configuration.
 	context.font = '60px Joystix';
@@ -193,8 +197,8 @@ function render() {
 	context.textAlign = 'center';
 
 	// Render scores at the top of the screen.
-	context.fillText(`${player1Score}`, canvas.width * 0.25, 75);
-	context.fillText(`${player2Score}`, canvas.width * 0.75, 75);
+	context.fillText(`${player1Score}`, CANVAS_WIDTH * 0.25, 75);
+	context.fillText(`${player2Score}`, CANVAS_WIDTH * 0.75, 75);
 
 	/**
 	 * The paddles are simply rectangles we draw on the screen at certain
@@ -208,7 +212,7 @@ function render() {
 	context.fillRect(ballX, ballY, 20, 20);
 
 	// Render second paddle (right side).
-	context.fillRect(canvas.width - 50, player2Y, 20, 200);
+	context.fillRect(CANVAS_WIDTH - 50, player2Y, 20, 200);
 }
 
 /**

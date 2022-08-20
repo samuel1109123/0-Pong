@@ -23,14 +23,18 @@ import Paddle from "./Paddle.js";
  * the DOM located in `index.html` and getting the `context` object
  * from it.
  */
-const canvas = document.querySelector('canvas');
-const context = canvas.getContext('2d');
+const canvas = document.createElement('canvas');
+const context = canvas.getContext('2d') || new CanvasRenderingContext2D();
 const CANVAS_WIDTH = 1280;
 const CANVAS_HEIGHT = 720;
 
 // Set the dimensions of the play area.
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
+canvas.setAttribute('tabindex', '1'); // Allows the canvas to have user input.
+
+// Now that the canvas element has been prepared, we can add it to the DOM.
+document.body.appendChild(canvas);
 
 // Initialize score variables for rendering on the screen and keeping track of the winner.
 let player1Score = 0;
@@ -104,7 +108,7 @@ function update(dt) {
 		 * We have to immediately set the enter field of the keys object to false
 		 * because technically, this field will be true for the entire time the key
 		 * is pressed. If you hold down the enter key, you don't want the ball to
-		 * repeatedly launch over ang over again.
+		 * repeatedly launch over and over again.
 		 */
 		keys.Enter = false;
 

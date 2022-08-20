@@ -16,11 +16,13 @@ export default class Ball {
 	 * @param {Number} height The ball's height.
 	 */
 	constructor(x, y, width, height, canvasHeight) {
+		this.x = x;
+		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.canvasHeight = canvasHeight;
-
-		this.reset(x, y);
+		this.dx = generateRandomNumber(400, 800);
+		this.dy = generateRandomNumber(400, 800);
 	}
 
 	/**

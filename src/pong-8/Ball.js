@@ -16,15 +16,17 @@ export default class Ball {
 	 * @param {Number} height The ball's height.
 	 */
 	constructor(x, y, width, height, canvasHeight) {
+		this.x = x;
+		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.canvasHeight = canvasHeight;
+		this.dx = generateRandomNumber(400, 800);
+		this.dy = generateRandomNumber(400, 800);
 		this.sounds = {
 			paddleHit: new Audio('./sounds/paddle_hit.wav'),
 			wallHit: new Audio('./sounds/wall_hit.wav'),
 		};
-
-		this.reset(x, y);
 	}
 
 	/**

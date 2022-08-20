@@ -20,12 +20,17 @@
  * the DOM located in `index.html` and getting the `context` object
  * from it.
  */
-const canvas = document.querySelector('canvas');
-const context = canvas.getContext('2d');
+const canvas = document.createElement('canvas');
+const context = canvas.getContext('2d') || new CanvasRenderingContext2D();
+const CANVAS_WIDTH = 1280;
+const CANVAS_HEIGHT = 720;
 
 // Set the dimensions of the play area.
-canvas.width = 1280;
-canvas.height = 720;
+canvas.width = CANVAS_WIDTH;
+canvas.height = CANVAS_HEIGHT;
+
+// Now that the canvas element has been prepared, we can add it to the DOM.
+document.body.appendChild(canvas);
 
 // This will be used to calculate delta time in `gameLoop()`.
 let lastTime = 0;
@@ -71,20 +76,18 @@ function render() {
 	 * fresh each frame. It does this by drawing a "clear" rectangle starting
 	 * from the origin to the extremities of the canvas.
 	 */
-	context.clearRect(0, 0, canvas.width, canvas.height);
+	context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
+	context.font = "60px Comic Sans MS";
 	context.fillStyle = 'white';
 	context.textBaseline = 'middle';
 	context.textAlign = 'center';
 	context.fillText(
 		`Hello Pong!`,     // text to render
-		canvas.width / 2,  // X coordinate
-		canvas.height / 2, // Y coordinate
+		CANVAS_WIDTH / 2,  // X coordinate
+		CANVAS_HEIGHT / 2, // Y coordinate
 	);
 }
 
 // Start the game loop.
 gameLoop();
-
-// Focus the canvas so that user doesn't have to click on it.
-canvas.focus();

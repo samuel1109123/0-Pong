@@ -20,10 +20,18 @@
  * the DOM located in `index.html` and getting the `context` object
  * from it.
  */
-const canvas = document.querySelector('canvas');
-const context = canvas.getContext('2d');
-const width = 1280;
-const height = 720;
+const canvas = document.createElement('canvas');
+const context = canvas.getContext('2d') || new CanvasRenderingContext2D();
+const CANVAS_WIDTH = 1280;
+const CANVAS_HEIGHT = 720;
+
+// Set the dimensions of the play area.
+canvas.width = CANVAS_WIDTH;
+canvas.height = CANVAS_HEIGHT;
+
+// Now that the canvas element has been prepared, we can add it to the DOM.
+document.body.appendChild(canvas);
+
 let player1Score = 0;
 let player2Score = 0;
 
@@ -33,10 +41,6 @@ const myFont = new FontFace('Joystix', 'url(./Joystix.ttf)');
 myFont.load().then(font => {
 	document.fonts.add(font);
 });
-
-// Set the dimensions of the play area.
-canvas.width = 1280;
-canvas.height = 720;
 
 // This will be used to calculate delta time in `gameLoop()`.
 let lastTime = 0;
@@ -82,7 +86,7 @@ function render() {
 	 * fresh each frame. It does this by drawing a "clear" rectangle starting
 	 * from the origin to the extremities of the canvas.
 	 */
-	context.clearRect(0, 0, canvas.width, canvas.height);
+	context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
 	// Set font configuration.
 	context.font = '60px Joystix';
@@ -90,8 +94,8 @@ function render() {
 	context.textAlign = 'center';
 
 	// Render scores at the top of the screen.
-	context.fillText(`${player1Score}`, canvas.width * 0.25, 75);
-	context.fillText(`${player2Score}`, canvas.width * 0.75, 75);
+	context.fillText(`${player1Score}`, CANVAS_WIDTH * 0.25, 75);
+	context.fillText(`${player2Score}`, CANVAS_WIDTH * 0.75, 75);
 
 	/**
 	 * The paddles are simply rectangles we draw on the screen at certain
@@ -102,14 +106,11 @@ function render() {
 	context.fillRect(30, 30, 20, 200);
 
 	// Render ball (center).
-	context.fillRect(canvas.width / 2 - 10, canvas.height / 2 - 10, 20, 20);
+	context.fillRect(CANVAS_WIDTH / 2 - 10, CANVAS_HEIGHT / 2 - 10, 20, 20);
 
 	// Render second paddle (right side).
-	context.fillRect(canvas.width - 50, canvas.height - 230, 20, 200);
+	context.fillRect(CANVAS_WIDTH - 50, CANVAS_HEIGHT - 230, 20, 200);
 }
 
 // Start the game loop.
 gameLoop();
-
-// Focus the canvas so that user doesn't have to click on it.
-canvas.focus();

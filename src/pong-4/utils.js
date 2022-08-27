@@ -7,7 +7,7 @@
  * @returns A randomly generated number from `min` to `max`.
  */
 export function generateRandomNumber(min, max) {
-	let randomNumber = Math.random() * (max - min) + max;
+	let randomNumber = Math.random() * (max - min) + min;
 
 	// 50% chance the number may be negative.
 	if (Math.floor(Math.random() * 2) === 1) {

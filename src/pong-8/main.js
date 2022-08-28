@@ -176,6 +176,7 @@ function update(dt) {
 		player1.stop();
 	}
 
+	/*
 	// Player 2 movement.
 	if (keys.ArrowUp) {
 		player2.moveUp();
@@ -186,6 +187,11 @@ function update(dt) {
 	else {
 		player2.stop();
 	}
+	*/
+	//make player 2 move on its own
+	player2.moveAI(ball);
+	
+
 
 	render();
 }

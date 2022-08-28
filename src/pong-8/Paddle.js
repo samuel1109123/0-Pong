@@ -58,6 +58,11 @@ export default class Paddle {
 		}
 	}
 
+	
+	
+	
+
+
 	/**
 	 * Draw the ball to the screen.
 	 *
@@ -66,5 +71,18 @@ export default class Paddle {
 	render(context) {
 		context.fillStyle = "white";
 		context.fillRect(this.x, this.y, this.width, this.height);
+	}
+
+	/**
+	 * Make a paddle move on its own relative to the ball 
+	 * @param {*} ball ball on screen so the ai knows where to move 
+	 */
+	moveAI(ball) {
+		if (ball.y < this.y + this.height / 2) {
+			this.moveUp();
+		}
+		else {
+			this.moveDown();
+		}
 	}
 }
